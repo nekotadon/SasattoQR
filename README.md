@@ -15,23 +15,16 @@ QRコードの作成と読み取りを行うソフトウェアです。
 ## 動作確認環境
 Microsoft Windows10 x64 + .NET Framework 4.8
 
-## その他
+## ライセンス等
 
-### ZXing.Netについて
+This software is released under the MIT License.   
+詳細については、[LICENSE](./LICENSE) ファイルを参照してください。
 
-本ソフトウェアはQRコードの作成、読み取りのために以下のライブラリを使用しています。  
+* [ZXing.Net](https://github.com/micjahn/ZXing.Net/)について  
 
-* `zxing.dll`  
-* `zxing.presentation.dll`  
+  This software includes the work that is distributed in the Apache License 2.0.  
+  ライセンスについてはZXing.Netフォルダ内の[COPYING](./ZXing.Net/COPYING)を確認願います。  
 
-ライセンスについてはZXing.Netフォルダ内のCOPYINGを確認願います。  
+* QRコードについて  
 
-ZXing.Net  
-Michael Jahn  
-https://github.com/micjahn/ZXing.Net/  
-Apache License Version 2.0  
-http://www.apache.org/licenses/LICENSE-2.0  
-
-### QRコードについて
-
-QRコードは株式会社デンソーウェーブの登録商標です。
+  QRコードは株式会社デンソーウェーブの登録商標です。
