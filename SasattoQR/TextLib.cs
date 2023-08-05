@@ -145,7 +145,7 @@ namespace TextLib
         public IniFile(string f)
         {
             ProfileName = f;
-            fileenc = Encoding.Default;
+            fileenc = TextFile.encoding_utf8;
         }
 
         public IniFile(string f, Encoding e)
@@ -866,7 +866,7 @@ namespace TextLib
             {
                 if (block.StartsWith("24-40")
                 || block.StartsWith("24-42")
-                || block.StartsWith("26-40-1B-24-42")
+                || block.StartsWith("26-40")//本来は"26-40-1B-24-42"であるが簡易的に判定
                 || block.StartsWith("24-28-44")
                 || block.StartsWith("24-28-4F")
                 || block.StartsWith("24-28-51")
