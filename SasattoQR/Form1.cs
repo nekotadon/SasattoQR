@@ -19,6 +19,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using TextLib;
 
 namespace SasattoQR
 {
@@ -33,7 +34,7 @@ namespace SasattoQR
         private int clear_timer = 6;
 
         //設定読み込み
-        TextLib.IniFile pfini;
+        IniFile iniFile = new IniFile();
 
         bool mode_change;
         bool kidouji = true;
@@ -60,14 +61,12 @@ namespace SasattoQR
 
             //設定ファイル読み込み
             string folder = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            pfini = new TextLib.IniFile(folder + @"\SasattoQR.ini");
-            pfini.load();
 
             //設定読み込み
-            this.ToolStripMenuItem_random.Checked = (pfini.getvalue("make", "Random", 0) == 1);
-            this.ToolStripMenuItem_autoread.Checked = pfini.getvalue("read", "AutoRead", 0) == 1;
-            this.ToolStripMenuItem_clipcheck.Checked = pfini.getvalue("read", "ClipboardMonitoring", 0) == 1;
-            this.ToolStripMenuItem_bootread.Checked = pfini.getvalue("setting", "InitialMode", 0) == 1;
+            this.ToolStripMenuItem_random.Checked = iniFile.GetKeyValueBool("make", "Random", false, true);
+            this.ToolStripMenuItem_autoread.Checked = iniFile.GetKeyValueBool("read", "AutoRead", false, true);
+            this.ToolStripMenuItem_clipcheck.Checked = iniFile.GetKeyValueBool("read", "ClipboardMonitoring", false, true);
+            this.ToolStripMenuItem_bootread.Checked = iniFile.GetKeyValueBool("setting", "InitialMode", false, true);
             settingSave();
 
             //設定変更
@@ -526,11 +525,10 @@ namespace SasattoQR
 
         private void settingSave()
         {
-            pfini.setvalue("make", "Random", this.ToolStripMenuItem_random.Checked ? "1" : "0");
-            pfini.setvalue("read", "AutoRead", this.ToolStripMenuItem_autoread.Checked ? "1" : "0");
-            pfini.setvalue("read", "ClipboardMonitoring", this.ToolStripMenuItem_clipcheck.Checked ? "1" : "0");
-            pfini.setvalue("setting", "InitialMode", this.ToolStripMenuItem_bootread.Checked ? "1" : "0");
-            pfini.WriteIniFile();
+            iniFile.SetKeyValueBool("make", "Random", this.ToolStripMenuItem_random.Checked);
+            iniFile.SetKeyValueBool("read", "AutoRead", this.ToolStripMenuItem_autoread.Checked);
+            iniFile.SetKeyValueBool("read", "ClipboardMonitoring", this.ToolStripMenuItem_clipcheck.Checked);
+            iniFile.SetKeyValueBool("setting", "InitialMode", this.ToolStripMenuItem_bootread.Checked);
         }
     }
 }
