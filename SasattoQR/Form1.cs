@@ -59,9 +59,6 @@ namespace SasattoQR
             this.pictureBox2.Image = Properties.Resources.arrow;
             this.pictureBox2.SendToBack();
 
-            //設定ファイル読み込み
-            string folder = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-
             //設定読み込み
             this.ToolStripMenuItem_random.Checked = iniFile.GetKeyValueBool("make", "Random", false, true);
             this.ToolStripMenuItem_autoread.Checked = iniFile.GetKeyValueBool("read", "AutoRead", false, true);
