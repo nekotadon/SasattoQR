@@ -1,6 +1,6 @@
 ﻿namespace SasattoQR
 {
-    partial class Form_ver
+    partial class FormAboutThisApp
     {
         /// <summary>
         /// Required designer variable.
@@ -54,7 +54,7 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form_ver
+            // FormAboutThisApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -63,12 +63,12 @@
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.KeyPreview = true;
-            this.Name = "Form_ver";
+            this.Name = "FormAboutThisApp";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ソフトウェアについて";
-            this.Load += new System.EventHandler(this.Form_ver_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_ver_KeyDown);
+            this.Load += new System.EventHandler(this.FormAboutThisApp_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormAboutThisApp_KeyDown);
             this.ResumeLayout(false);
 
         }

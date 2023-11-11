@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace SasattoQR
 {
-    public partial class Form_ver : Form
+    public partial class FormAboutThisApp : Form
     {
-        public Form_ver()
+        public FormAboutThisApp()
         {
             InitializeComponent();
             this.Icon = Properties.Resources.sasattoqr;
@@ -38,7 +38,7 @@ namespace SasattoQR
             this.Close();
         }
 
-        private void Form_ver_KeyDown(object sender, KeyEventArgs e)
+        private void FormAboutThisApp_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Escape)
             {
@@ -46,7 +46,7 @@ namespace SasattoQR
             }
         }
 
-        private void Form_ver_Load(object sender, EventArgs e)
+        private void FormAboutThisApp_Load(object sender, EventArgs e)
         {
             int pos;
             Font fnt = new Font(SystemFonts.MenuFont.FontFamily, 14, FontStyle.Bold);

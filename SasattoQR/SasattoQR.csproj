@@ -59,26 +59,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="SasattoQR.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="SasattoQR.Designer.cs">
+      <DependentUpon>SasattoQR.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_ver.cs">
+    <Compile Include="FormAboutThisApp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_ver.Designer.cs">
-      <DependentUpon>Form_ver.cs</DependentUpon>
+    <Compile Include="FormAboutThisApp.Designer.cs">
+      <DependentUpon>FormAboutThisApp.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextLib.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="SasattoQR.resx">
+      <DependentUpon>SasattoQR.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_ver.resx">
-      <DependentUpon>Form_ver.cs</DependentUpon>
+    <EmbeddedResource Include="FormAboutThisApp.resx">
+      <DependentUpon>FormAboutThisApp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
