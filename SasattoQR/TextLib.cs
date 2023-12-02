@@ -1,4 +1,4 @@
-﻿//2023.11.11-01
+﻿//2023.12.02
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +17,9 @@ namespace TextLib
         public static string BaseIniFile => DirectoryYen + FileNameWithoutExtension + ".ini";
     }
 
+    /// <summary>
+    /// iniファイル読み書き用クラス
+    /// </summary>
     public class IniFile
     {
         //iniファイルパス
@@ -29,7 +32,7 @@ namespace TextLib
         private Items _items = new Items();
 
         /// <summary>
-        /// iniファイル読み書き用クラス。App.exeの場合App.iniをiniファイルとします。Encodingは自動で判定します。
+        /// iniファイルの初期化。App.exeの場合App.iniをiniファイルとします。Encodingは自動で判定します。
         /// </summary>
         public IniFile()
         {
@@ -38,7 +41,7 @@ namespace TextLib
         }
 
         /// <summary>
-        /// iniファイル読み書き用クラス。iniファイルの絶対パスを指定します。Encodingは自動で判定します。
+        /// iniファイルの初期化。iniファイルの絶対パスを指定します。Encodingは自動で判定します。
         /// </summary>
         /// <param name="filepath">iniファイルの絶対パス</param>
         public IniFile(string filepath)
@@ -48,7 +51,7 @@ namespace TextLib
         }
 
         /// <summary>
-        /// iniファイル読み書き用クラス。iniファイルの絶対パスとEncodingを指定します。
+        /// iniファイルの初期化。iniファイルの絶対パスとEncodingを指定します。
         /// </summary>
         /// <param name="filepath">iniファイルの絶対パス</param>
         /// <param name="encoding">iniファイルの文字コード</param>
@@ -59,7 +62,7 @@ namespace TextLib
         }
 
         /// <summary>
-        /// iniファイル読み書き用クラス。iniファイルのEncodingを指定します。iniファイルはApp.exeの場合App.iniとします。
+        /// iniファイルの初期化。iniファイルのEncodingを指定します。iniファイルはApp.exeの場合App.iniとします。
         /// </summary>
         /// <param name="encoding">iniファイルの文字コード</param>
         public IniFile(Encoding encoding)
@@ -94,7 +97,7 @@ namespace TextLib
         {
             string value = GetKeyValue(sectionName, keyName);
 
-            //存在しない場合はデフォルト値を書き込み
+            //存在しない場合
             if (value == null && save)
             {
                 SetKeyValueString(sectionName, keyName, "");
@@ -115,7 +118,7 @@ namespace TextLib
         {
             string value = GetKeyValue(sectionName, keyName);
 
-            //存在しない場合はデフォルト値を書き込み
+            //存在しない場合
             if (value != null && value != "")
             {
                 return value;
@@ -426,18 +429,7 @@ namespace TextLib
             }
 
             //指定のセクション名のセクションを返す
-            public Section GetSection(string sectionName)
-            {
-                foreach (var section in Sections)
-                {
-                    if (section.Name == sectionName)
-                    {
-                        return section;
-                    }
-                }
-
-                return null;
-            }
+            public Section GetSection(string sectionName) => Sections.Find(section => section.Name == sectionName);
 
             //全項目設定文字列を返す
             public string ToStr()
@@ -478,19 +470,7 @@ namespace TextLib
             }
 
             //指定のキー名のキーを返す
-            public Key GetKey(string keyName)
-            {
-                foreach (var key in Keys)
-                {
-                    if (key.Name == keyName)
-                    {
-                        return key;
-                    }
-                }
-
-                return null;
-            }
-
+            public Key GetKey(string keyName) => Keys.Find(key => key.Name == keyName);
         }
 
         //キー
@@ -605,8 +585,6 @@ namespace TextLib
         }
     }
 
-    #region TextFile
-
     public class TextFile
     {
         /// <summary>
@@ -703,10 +681,6 @@ namespace TextLib
             return allText;
         }
     }
-
-    #endregion
-
-    #region EncodeLib
 
     public static class EncodeLib
     {
@@ -1152,6 +1126,4 @@ namespace TextLib
             }
         }
     }
-
-    #endregion
 }
