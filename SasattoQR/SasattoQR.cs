@@ -19,7 +19,6 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using TextLib;
 
 namespace SasattoQR
 {
@@ -32,7 +31,7 @@ namespace SasattoQR
         private Size formSize;
         private Size formMinimumSize;
         private int infoTipClearTimerCount = 6;
-        private IniFile iniFile = new IniFile();
+        private TextLib.IniFile iniFile = new TextLib.IniFile();
         private bool isModeChange;
         private bool kidouji = true;
         //モード確認
