@@ -366,20 +366,23 @@ namespace SasattoQR
                         //フォームの範囲を読み取り
                         using (Bitmap bitmap = new Bitmap(Width, Height))
                         {
-                            using (Graphics graphics = Graphics.FromImage(bitmap))
-                            {
-                                graphics.CopyFromScreen(PointToScreen(new Point(0, 0)), new Point(0, 0), bitmap.Size);
-                            }
+                            DrawToBitmap(bitmap, new Rectangle(0, 0, Width, Height));
+
+                            Rectangle client = RectangleToScreen(ClientRectangle);
+                            Rectangle window = Bounds;
+
+                            int x0 = client.X - window.X;
+                            int y0 = client.Y - window.Y;
 
                             //コントロール部分切り取り
                             Rectangle rect = new Rectangle();
                             if (radioButtonMaker.Checked)
                             {
-                                rect = new Rectangle(pictureBoxQR.Location.X + 1, pictureBoxQR.Location.Y + 1, pictureBoxQR.Image.Width, pictureBoxQR.Image.Height);
+                                rect = new Rectangle(x0 + pictureBoxQR.Location.X + 1, y0 + pictureBoxQR.Location.Y + 1, pictureBoxQR.Image.Width, pictureBoxQR.Image.Height);
                             }
                             else
                             {
-                                rect = new Rectangle(pictureBoxQR.Location.X + 1, pictureBoxQR.Location.Y + 1, pictureBoxQR.Width - 2, pictureBoxQR.Height - 2);
+                                rect = new Rectangle(x0 + pictureBoxQR.Location.X + 1, y0 + pictureBoxQR.Location.Y + 1, pictureBoxQR.Width - 2, pictureBoxQR.Height - 2);
                             }
 
                             using (Bitmap bitmapQR = bitmap.Clone(rect, bitmap.PixelFormat))
