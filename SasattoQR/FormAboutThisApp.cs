@@ -24,7 +24,7 @@ namespace SasattoQR
             string crlf = System.Environment.NewLine;
             this.richTextBox1.Font = this.button1.Font = System.Drawing.SystemFonts.MenuFont;
             this.richTextBox1.Text = asmprd.Product + crlf
-                + "version" + vi.ProductMajorPart + "." + vi.ProductMinorPart + "." + vi.ProductPrivatePart + crlf
+                + "version" + vi.ProductMajorPart + "." + vi.ProductMinorPart + "." + vi.ProductBuildPart + crlf
                 + crlf
                 + Properties.Resources.string_license
                 + crlf
